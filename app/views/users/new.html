@@ -1,0 +1,15 @@
+<form action = '/users/create' method = 'post'>
+	<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
+	Email:<input type = "text" name = "email"><br>
+	Name:<input type = "text" name = "name"><br>
+	Password:<input type = "text" name = "password"><br>
+	Password Confirmation:<input type = "text" name = "password_confirmation"><br>
+	<input type = "submit" value = "Join">
+</form>
+
+<% if flash[:error] %>
+<% flash[:error].each do |value| %>
+	 <%= value %><br>
+<% end %>
+<% end %>
+<%= flash[:errors] %>

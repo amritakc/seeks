@@ -1,0 +1,12 @@
+
+<form action = "/users/<%= @user.id %>/update" method = 'post'>
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<input type="hidden" name="_method" value="patch"><br>
+	Name: <input type = "text" name = "user[name]" value = "<%= @user.name %>"><br>
+	Email: <input type = "text" name = "user[email]" value = "<%= @user.email %>"><br>
+	Password: <input type = "text" name = "user[password]" value = "<%= @user.password %>"><br>
+	<input type = "submit" value = "Update Profile">
+</form>
+
+<a href = "#">Edit Profile</a>
+

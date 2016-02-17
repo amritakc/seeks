@@ -1,0 +1,40 @@
+<h3><%= @user.name %></h3>
+<h3><%= @user.email %></h3>
+
+<a href = "/users/<%= @user.id %>/edit">Edit Profile</a>
+<br><br>
+
+<form action = "/user/destroy/<%= @user.id %>" method = 'post'>
+ 	<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
+ 	<input type = "submit" value = "Delete User">
+ </form>
+
+<br><br>
+<a href = "/secrets">Secrets</a>
+
+<h1>New Secrets</h1>
+
+<form action = "/new_secrets/<%= @user.id %>" method = 'post'>
+	<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
+	<input type = "text" name = "secret">
+	<input type = "submit" value = "Submit">
+</form> 
+
+<h1>Secrets</h1>
+<% @secret_all.each do |x| %>
+ 	<%= x.secret %>
+ 	<form action = "/secret/destroy/<%= x.id %>" method = 'post'>
+ 		<input name= "authenticity_token" value = "<% form_authenticity_token %>" type = "hidden">
+ 		<input type = "submit" value = "Delete">
+ 	</form>
+ 	<br><br>
+ <% end %> 
+
+ <h1>Secrets Liked</h1>
+ <% @likes.each do |l| %>
+ 	<%= l.secret %><br><br>
+ <% end %>
+
+
+ 
+
